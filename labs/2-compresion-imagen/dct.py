@@ -31,6 +31,10 @@ def do_print(msg, e, s_type='M'):
     print()
 
 
+def int_round(n):
+    return int(Decimal(n).quantize(Decimal('1'), rounding=decimal.ROUND_HALF_UP))
+
+
 def encode(m):
     Shift_Fxy = shift(m)
     Tuv = dct_encode(Shift_Fxy)
@@ -55,10 +59,6 @@ def shift(F):
 
 def shift_inv(F):
     pass
-
-
-def int_round(n):
-    return int(Decimal(n).quantize(Decimal('1'), rounding=decimal.ROUND_HALF_UP))
 
 
 def dct_encode(Fxy):
