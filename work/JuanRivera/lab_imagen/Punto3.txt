@@ -1,0 +1,8 @@
+a. Para que se utiliza el modulo struct en python?
+
+
+b. Que hacen los scripts:
+	
+	bmp.py
+	decode.py
+	encode.py
