@@ -10,3 +10,23 @@
 ## Entregas
 
 1. [Imagen Digital y Compresión](https://docs.google.com/document/d/e/2PACX-1vTFk7ffLYDwzZvqeffmEpFlNwVlt_3kQ_lewuaAK80VJggs3_ffQojGAsbeUdvE82qtxUvKO16IQubA/pub)
+
+
+## Setup:
+
+1. Fork puj-multimedia
+2. Clonar
+```
+git clone git@github.com:jhvictoria/puj-multimedia.git
+```
+3. Ir a la carpeta de trabajo:
+```
+cd work/jorge-victoria/
+```
+4. Subir Cambios:
+```
+git status
+git add file(s) // git add carpeta
+git commit -m "mensaje"
+git push origin master
+```
