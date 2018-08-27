@@ -14,14 +14,14 @@
 
 ## Setup:
 
-1. Fork puj-multimedia
+1. Fork puj-multimedia y clonar su proyecto, ejemplo de usuario "carlos"
 2. Clonar
 ```
-git clone git@github.com:jhvictoria/puj-multimedia.git
+git clone git@github.com:carlos/puj-multimedia.git
 ```
 3. Ir a la carpeta de trabajo:
 ```
-cd work/jorge-victoria/
+cd work/carlos/
 ```
 4. Subir Cambios:
 ```
