@@ -4,17 +4,20 @@ PImage plaza;
 
 void setup() {
   
-  size(378, 568);
+  color rgb;
   imgLena = loadImage("lena.jpg");
   plaza = loadImage("plaza.png");
-  
-}
-
-void draw() { 
+  size(378, 568); //<>//
   image(plaza,0,0);
-  tint(255, 126);
-  image(imgLena, 0, 0);  // Display at full opacity
-  tint(255, 126);  // Display at half opacity
+  imgLena.loadPixels();
+  for(int i = 0 ; i<imgLena.pixels.length; i++){
+       float r = red(imgLena.pixels[i]);
+       float g = green(imgLena.pixels[i]);
+       float b = blue(imgLena.pixels[i]);
+       imgLena.pixels[i] = color(r,g,b,126);
+  }
+  image(imgLena,0,0);
+  updatePixels();
   save("mix.jpg");
 
 }
