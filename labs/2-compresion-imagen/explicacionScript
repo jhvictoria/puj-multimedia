@@ -1,0 +1,8 @@
+1-) Funcionalidad del modulo Struct del archivo bmp.py en esta ocasion se utiliza para manejar datos binarios, en este caso se utiliza para
+    desempaquetar los datos binarios del archivo de imagen de lena.bmp.
+2-)
+* El script bmp.py se encarga de sacar datos binarios del archivo lena.bmp, para luego generar una copia de esta en base a los datos extraidos
+* El script encode.py se encarga codificar la imagen.
+* El script decode.py se encarga de leer la imagen codificada para luego decodificarla.
+
+
