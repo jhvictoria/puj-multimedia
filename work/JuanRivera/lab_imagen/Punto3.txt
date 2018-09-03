@@ -1,8 +1,26 @@
 a. Para que se utiliza el modulo struct en python?
+	El modulo struct en python es utilizado para convertir valores de python a estrucutras de C. Lo que hace es empaquetar y desempacar en Strings con formatos definidos, segun los parametros que se le pasen a la funcion.
 
 
 b. Que hacen los scripts:
 	
 	bmp.py
+		def unpack():
+			Funcion definida con un try y exception, para desempacar una estructura que recibe por parametros.
+
+		def read_bmp():
+			Funcion que crea un diccionario y utiliza para unpack para desempacar la informacion de una imagen y guardarla en el diccionario.
+
+		def get_palette():
+
+		def pack():
+			Funcion definida con un try y un exception, para empacar nuevamente una estructura. 
+
+		def save_bmp():
+			Funcion definida que utiliza a pack() para volver a guardar la informacion del BMP en el archivo
+
+		def print_decoded_bpm(): 
+
 	decode.py
+
 	encode.py

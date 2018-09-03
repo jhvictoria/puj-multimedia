@@ -2,10 +2,19 @@ void setup() //<>//
 {
   PImage lenaI = loadImage("lena.jpg");
   PImage plazaI = loadImage("plaza.png");
-  float factor = 126;
-  size(378,568);
-  tint(255,factor);
-  image(plazaI,0,0);
-  tint(255,255-factor);
-  image(lenaI,0,0);
+  PImage finalI = createImage(plazaI.width,plazaI.height,0);
+  int factor = 0;
+  finalI.loadPixels();
+  size(390,580);
+  for (int i = 0;i < plazaI.height;i++)
+  {
+    for (int j = 0; j < plazaI.width;j++)
+    {
+      color a = plazaI.get(j,i);
+      color b = lenaI.get(j,i);
+      finalI.pixels[i*plazaI.width+j] = int(red(a)+green(a)+blue(a));
+      
+    }
+  }
+  image(finalI,0,0);
 }

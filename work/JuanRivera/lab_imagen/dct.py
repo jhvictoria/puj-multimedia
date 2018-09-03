@@ -3,10 +3,12 @@ import math
 import sys
 import decimal
 from decimal import Decimal
+global diag
 
 #Block size
 N = 8
 M = 8
+diag = [[0,0],[1,0],[0,1],[0,2],[1,1],[2,0],[3,0],[2,1],[1,2],[0,3],[0,4],[1,3],[2,2],[3,1],[4,0],[5,0],[4,1],[3,2],[2,3],[1,4],[0,5],[0,6],[1,5],[2,4],[3,3],[4,2],[5,1],[6,0],[7,0]]
 
 #Q-Matrix
 Q = [[16,11,10,16,24, 40, 51, 61],
@@ -54,43 +56,138 @@ def decode(l):
 
 
 def shift(F):
-    pass
+	for i in range(8):
+		for j in range(8):
+			F[i][j]=F[i][j]-128
+	return F
+
+
+    
 
 
 def shift_inv(F):
-    pass
+	for i in range(8):
+		for j in range(8):
+			F[i][j]=F[i][j]+128
+	return F
+
 
 
 def dct_encode(Fxy):
-    pass
+	new = [[None for _ in range(8)]for _ in range(8)]
+	for u in range(8):
+		for v in range(8):
+			res = onePos(u,v,Fxy)
+			res = int_round(res)
+			new[u][v] = res
+	return new
+
+
+
+def alphaFun(x):
+	if x == 0:
+		ax = math.sqrt(1/8)
+	else:
+		ax = math.sqrt(2/8)
+	return ax
+
+def onePos(u,v,m):
+	suma = 0
+	for x in range(8):
+		for y in range(8):
+			g = gFun(x,y,u,v)
+			suma = suma + (m[x][y] * g)
+	return suma
+
+
+def onePosI(u,v,m):
+	suma = 0
+	for x in range(8):
+		for y in range(8):
+			g = gFun(u,v,x,y)
+			suma = suma + (m[x][y] * g)
+	return suma
+
+def gFun(x,y,u,v):
+	cos1 = cosFun(x,u)
+	cos2 = cosFun(y,v)
+	au = alphaFun(u)
+	av = alphaFun(v)
+	res = au*av*cos1*cos2
+	return res
+
+
+def cosFun(x,u):
+	res= math.cos(((2*x+1)*u*math.pi)/16)
+	return res
+
+
 
 
 def dct_decode(Tuv):
-    pass
+	new = [[None for _ in range(8)]for _ in range(8)]
+	for u in range(8):
+		for v in range(8):
+			res = onePosI(u,v,Tuv)
+			res = int_round(res)
+			new[u][v] = res
+	return new
 
 
 def quantize(T, Q):
-    pass
+    for x in range(8):
+    	for y in range(8):
+    		T[x][y]= int_round(T[x][y]/Q[x][y])
+    return T
 
 
 def dequantize(T, Q):
-    pass
+	for x in range(8):
+		for y in range(8):
+			T[x][y]= int_round(T[x][y]*Q[x][y])
+	return T
 
 
 def zig_zag(m):
-    pass
+	#Code from https://www.geeksforgeeks.org/print-matrix-zag-zag-fashion/
+	solution=[[] for i in range(15)]
+	final = list()
+	for i in range(8):
+		for j in range(8):
+			sum=i+j
+			if(sum%2 ==0):
+				solution[sum].insert(0,m[i][j])
+			else:
+				solution[sum].append(m[i][j])
+	for i in solution:
+		for j in i:
+			final.append(j)
+	return final
+         
 
 
 def zig_zag_inv(l):
-    pass
+	new = [[0 for _ in range(8)] for _ in range (8)]
+	count = 0
+	for pos in diag:
+		new[pos[1]][pos[0]]=l[count]
+		count = count  + 1
+	return new
+    
 
 
 def no_zeros(l):
-    pass
+    for i in range(len(l)-1,-1,-1):
+    	if l[i] != 0:
+    		break
+    return(l[0:i+1])
 
 
 def add_zeros(l):
-    pass
+	difference = 63-(len(l)-1)
+	for i in range(difference):
+		l.append(0)
+	return l
 
   
 
