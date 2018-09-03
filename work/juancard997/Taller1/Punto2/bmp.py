@@ -37,7 +37,7 @@ def read_bmp(filename):
         dec_bmp['palette'] = []
         for i in range(54, dec_bmp['offset']):
             dec_bmp['palette'].append(unpack(SIZE_1, data, i))
-        
+
         offset   = dec_bmp['offset']
         width    = dec_bmp['img_width']
         height   = dec_bmp['img_height']
@@ -110,8 +110,9 @@ if __name__ == "__main__":
     import random
     bmp_data = []
     for i in range(512*512):
-        bmp_data.append(random.randint(0,255)) 
+        bmp_data.append(random.randint(0,255))
 
+    print(bmp_data)
     dec_bmp_1 = read_bmp('lena.bmp')
     print_decoded_bpm(dec_bmp_1)
     save_bmp(dec_bmp_1, 'lena2.bmp')

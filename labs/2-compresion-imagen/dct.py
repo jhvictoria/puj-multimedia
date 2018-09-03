@@ -54,151 +54,45 @@ def decode(l):
 
 
 def shift(F):
-    for x in range(len(F)):
-        for y in range(len(F[x])):
-            F[x][y] = (F[x][y]*(127+128))/255-128
-    return F
+    pass
+
 
 def shift_inv(F):
-    for x in range(len(F)):
-        for y in range(len(F[x])):
-            F[x][y] = (F[x][y]+128)*(255)/(127+128)
-    return F
-
-def alfa(x):
-    if(x == 0):
-        return (1/float(8))**0.5;
-    else:
-        return (2/float(8))**0.5;
-
-
-def sumatoryDct(N,M,u,v,F):
-    sum = 0
-    for x in range(N):
-        for y in range(M):
-            sum = sum +((alfa(u))*(alfa(v)*F[x][y] *(math.cos(((x+.5)*u*math.pi)/float(N))*math.cos(((y+.5)*v*math.pi)/float(M)))))
-    return (sum)
+    pass
 
 
 def dct_encode(Fxy):
-    matrizDCT = []
-    for u in range(8):
-        matrizDCT.append([])
-        for v in range(8):
-            matrizDCT[u].append(int_round(sumatoryDct(8,8,u,v,Fxy)))
-    return matrizDCT
-
-def constant(m):
-    if(m!=0):
-        return 1
-    else:
-        return (1/math.sqrt(2))
-
-def sumatoryIdct(N,M,x,y,T):
-    sum = 0
-    for u in range(N):
-        for v in range(M):
-            sum = sum+(T[u][v] * (alfa(u)*alfa(v)* (math.cos(((x+.5)*u*math.pi)/float(N))* math.cos(((y+.5)*v*math.pi)/float(M)))))
-    return sum
+    pass
 
 
 def dct_decode(Tuv):
-    matriz_idct = [[]for o in range(8)]
-    for x in range(8):
-        for y in range(8):
-            matriz_idct[x].append(int_round(sumatoryIdct(8,8,x,y,Tuv)))
-    return matriz_idct
-
+    pass
 
 
 def quantize(T, Q):
-    matrixQuantize = []
-    for x in range(8):
-        matrixQuantize.append([])
-        for y in range(8):
-            matrixQuantize[x].append(int_round(float(T[x][y])/float(Q[x][y])))
-    return matrixQuantize
+    pass
 
 
 def dequantize(T, Q):
-    for i in range(len(T)):
-        for j in range(len(T)):
-            T[i][j] = T[i][j]*Q[i][j]
+    pass
 
-    return T
 
 def zig_zag(m):
-    zigzag = []
-    zigzag.append(m[0][0])
-    for i in range(1,8):
-        for g in range(i+1):
-            if(i%2 == 1):
-                zigzag.append(m[g][i-g])
-            else:
-                zigzag.append(m[i-g][g])
-    cont = 0
-    for i in reversed(range(1,8)):
-        cont+=1
-        contIv = 7
-        for g in range(cont,8):
-            if(i%2==1):
-                zigzag.append(m[contIv][g])
-            else:
-                zigzag.append(m[g][contIv])
-            contIv-=1
-    return zigzag
+    pass
+
 
 def zig_zag_inv(l):
-    zigzag = [[0 for x in range(int(math.sqrt(len(l))))]for i in range(int(math.sqrt(len(l))))]
-    zigzag[0][0] = l[0]
-    conr = 1
-    for i in range(1,8):
-        for g in range(i+1):
-            if(i%2 == 1):
-                zigzag[g][i-g] = l[conr]
-            else:
-                zigzag[i-g][g] = l[conr]
-            conr+=1
-    cont = 0
-    for i in reversed(range(1,8)):
-        cont+=1
-        contIv = 7
-        for g in range(cont,8):
-            if(i%2==1):
-                zigzag[contIv][g] = l[conr]
-            else:
-                zigzag[g][contIv] = l[conr]
-            contIv-=1
-            conr+=1
-    return zigzag
-
+    pass
 
 
 def no_zeros(l):
-    guard = '0'
-    cont = 0
-    while cont< len(l):
-        if(l[cont] == 0 and guard == '0'):
-            guard = cont
-        elif(l[cont]== 0 and guard != '0' ):
-            pass
-        elif(l[cont]!=0 and guard != '0'):
-            guard = '0'
-        elif(l[cont]!= 0 and guard == '0'):
-            pass
-
-        cont+=1
-    l = l[:guard]
-    return l
-
+    pass
 
 
 def add_zeros(l):
-    lista = [0 for i in range(64-len(l))]
-    l = l+lista
-    return l
+    pass
 
-
+  
 
 def main():
     #Bloque original
@@ -225,7 +119,7 @@ def main():
     do_print("dct:\n", Tuv)
 
     Quv = quantize(Tuv,Q)
-    do_print("quantize:\n", Quv)
+    do_print("quantize:\n", Tuv)
 
     ZZ_uv = zig_zag(Quv)
     do_print("zig-zag scan:\n", ZZ_uv, s_type='L')
