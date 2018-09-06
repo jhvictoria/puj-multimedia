@@ -2,7 +2,23 @@
     desempaquetar los datos binarios del archivo de imagen de lena.bmp.
 2-)
 * El script bmp.py se encarga de sacar datos binarios del archivo lena.bmp, para luego generar una copia de esta en base a los datos extraidos
+
+  -Read_bmp() Se encarga  extraer los bits de la imagen.
+  -get_palette() Se encarga de crear una matriz es donde se alojara las paleta de colores de cada pixel de la imagen que se desea guardar
+  -save_bmp() se encarga de extraer los bit de la imagen original para luego guardar una copia de esta.
+  -print_decoded_bpm() imprime la paleta de colores que posee la imagen en una lista [1r,1g,1b,2r,2g,3b....nr,ng,nb].
+
+
 * El script encode.py se encarga codificar la imagen.
+
+-encode() se encarga de recorrer todos los bloques de la imagen y utiliza la funcion dtc que permite codificar cada bloque
+-get_block() se encarga de captar las imagenes por bloques de bit .
+-pack_code() se encarga de guardar la informacion de los bloques de bits en un formato cbmp.
+
+
 * El script decode.py se encarga de leer la imagen codificada para luego decodificarla.
 
+-decode() se encarga de recorrer los codigos de los bloques codificado y le aplica la funcion idct para decodificar cada bloque de bits
+-unpack() se encarga de recopilar todos lo datos en bit de la imagen del formato cbmp.
 
+-
