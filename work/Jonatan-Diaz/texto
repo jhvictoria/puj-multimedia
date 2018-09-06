@@ -1,0 +1,42 @@
+a. Para que se utiliza el modulo struct en python?
+	
+	Este módulo realiza conversiones entre los valores Python y las estructuras C representadas como objetos de bytes Python. Utiliza cadenas de formato como descripciones compactas de  estructuras en C y la conversión prevista a valores de Python.
+
+b. Que hacen los scripts:
+	
+	bmp.py
+		def unpack():
+			desempaca una estructura que recibe por parametros.
+
+		def read_bmp():
+			crea un diccionario y hace uso de unpack para desempacar la informacion de una imagen y guardarla nuevamente.
+
+
+		def pack():
+			empaca nuevamente una estructura. 
+
+		def save_bmp():
+			guardar la informacion del BMP en el archivo
+
+ 
+
+	decode.python 		desempaqueta ua estructura siguiendo el formato de dicha estructura 
+
+		unpack_code:	
+						def unpack:	 es el desempaquetado desde el buffer comenzando desde un desplazamiento offset, tamaño determinado size y un formato  
+
+		get_palette:	genera un arreglo con todas las posibles colores 
+
+		save_bmp:		empaqueta una estructura utilizando el modulo struct y la estructura de la clase a empaquetar
+
+		print_decode_bmp:	imprime la estructura, pero solamente las que tienen en sus dato un 'bmp_data' or 'palette' y el tamaño de la estructura sea mayor a 5 
+
+	
+	encode.python 		empaqueta ua estructura siguiendo el formato de dicha estructura 
+
+		get_block: 		lee un pequeño bloque de datos, teniendo el principio y el fin del bloque por parametro
+
+		pack_code:      genera una estructura para empaquetar 
+
+		encode:			codifica una estructura segun un codigo de empaquetado 
+
