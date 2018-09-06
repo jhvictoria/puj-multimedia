@@ -1,3 +1,5 @@
+#Juan Fernando Escobar
+
 # -*- coding: cp1252 -*-
 import math
 import sys
@@ -54,43 +56,174 @@ def decode(l):
 
 
 def shift(F):
-    pass
+    tmp=F[:]
+    for e in range(N):
+        for ee in range(M):
+            F[e][ee]-=128
+    return tmp
 
 
 def shift_inv(F):
-    pass
+    tmp=F[:]
+    for e in range(N):
+        for ee in range(M):
+            F[e][ee]+=128
+    return tmp
+
+def alpha(x):
+    if x==0:
+        return math.sqrt(1/8)
+    else:
+        return math.sqrt(2/8)
 
 
 def dct_encode(Fxy):
-    pass
+    salida= [ [ 0 for e in range(M) ] for ee in range(N) ]
+    for u in range(N):
+        for v in range(M):
+            for x in range(N):
+                for y in range(M):
+                    salida[u][v]+=Fxy[x][y]*alpha(u)*alpha(v)*math.cos(((2*x+1)*u*math.pi)/(2*N))*math.cos(((2*y+1)*v*math.pi)/(2*M))
+            salida[u][v]=int_round(salida[u][v])
+    return salida
 
 
 def dct_decode(Tuv):
-    pass
+    salida= [ [ 0 for e in range(M) ] for ee in range(N) ]
+    for x in range(N):
+        for y in range(M):
+            for u in range(N):
+                for v in range(M):
+                    salida[x][y]+=Tuv[u][v]*alpha(u)*alpha(v)*math.cos(((2*x+1)*u*math.pi)/(2*N))*math.cos(((2*y+1)*v*math.pi)/(2*M))
+            salida[x][y]=int_round(salida[x][y])
+    return salida
 
 
 def quantize(T, Q):
-    pass
+    for u in range(N):
+        for v in range(M):
+            T[u][v]=int_round(T[u][v]/Q[u][v])
+    return T
 
 
 def dequantize(T, Q):
-    pass
+    for u in range(N):
+        for v in range(M):
+            T[u][v]=T[u][v]*Q[u][v]
+    return T
 
 
 def zig_zag(m):
-    pass
+    sube=True
+    half=True
+    i=0
+    salida=[ None for e in range(M*N) ]
+    x=0
+    y=0
+    while x!=N-1 or y!=M-1:
+        salida[i]=m[x][y]
+        i+=1
+        if half:
+            if x==0 and sube:
+                y+=1
+                sube=False
+            elif y==0 and not(sube):
+                x+=1
+                sube=True
+            elif sube==True:
+                x-=1
+                y+=1
+            else:
+                x+=1
+                y-=1
+            if x==7:
+                salida[i]=m[x][y]
+                sube=True
+                i+=1
+                half=False
+                x=N-1
+                y=1
+        else:
+            if x==N-1 and not(sube):
+                y+=1
+                sube=True
+            elif y==M-1 and sube:
+                x+=1
+                sube=False
+            elif sube==True:
+                x-=1
+                y+=1
+            else:
+                x+=1
+                y-=1
+    salida[i]=m[x][y]
+    return salida
 
 
 def zig_zag_inv(l):
-    pass
-
+    sube=True
+    half=True
+    i=0
+    salida=[ [ None for e in range(M) ] for ee in range(N) ]
+    x=0
+    y=0
+    while x!=N-1 or y!=M-1:
+        salida[x][y]=l[i]
+        i+=1
+        if half:
+            if x==0 and sube:
+                y+=1
+                sube=False
+            elif y==0 and not(sube):
+                x+=1
+                sube=True
+            elif sube==True:
+                x-=1
+                y+=1
+            else:
+                x+=1
+                y-=1
+            if x==7:
+                salida[x][y]=l[i]
+                sube=True
+                i+=1
+                half=False
+                x=N-1
+                y=1
+        else:
+            if x==N-1 and not(sube):
+                y+=1
+                sube=True
+            elif y==M-1 and sube:
+                x+=1
+                sube=False
+            elif sube==True:
+                x-=1
+                y+=1
+            else:
+                x+=1
+                y-=1
+    salida[x][y]=l[i]
+    return salida
 
 def no_zeros(l):
-    pass
+    lenght=len(l)-1
+    flag=False
+    while(lenght>=0 and not(flag)):
+        if l[lenght]==0:
+            lenght-=1
+        else:
+            flag=True
+    l=l[:lenght+1]
+    return l
 
 
 def add_zeros(l):
-    pass
+    length=len(l)
+    while length<M*N:
+        l.append(0)
+        length+=1
+    return l
 
   
 
@@ -119,7 +252,7 @@ def main():
     do_print("dct:\n", Tuv)
 
     Quv = quantize(Tuv,Q)
-    do_print("quantize:\n", Tuv)
+    do_print("quantize:\n", Quv)
 
     ZZ_uv = zig_zag(Quv)
     do_print("zig-zag scan:\n", ZZ_uv, s_type='L')
