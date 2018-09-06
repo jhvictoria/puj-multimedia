@@ -1,0 +1,41 @@
+Juan Fernando Escobar
+3-09-2018
+Multimedia - Tarea 3
+
+Una vez completado el punto anterior, leer el código y ejecutar los scripts bmp.py, encode.py y decode.py (los últimos dos tardan un tiempo en completar), luego en un archivo de texto plano, responder las siguientes preguntas:
+
+1. Para qué se utiliza el módulo struct en Python?
+
+Lo primero es que el módulo struct de Python permite la conversión entre valores de Python y los structs de C, ofreciendo herramientas para trabajar con este tipo de información binaria. Para recordar, los struct de C son un tipo de datos que define una agrupación de variables en un bloque de memoria, al cual uno puede acceder usando un solo apuntador.
+
+En los códigos se usa para principalmente para importar el método de la clase collections. Con este método se pueden obtener instancias de diccionarios que recuerdan el orden en que las llaves fueron insertadas. Con esto se puede simular un struct.
+
+2. Qué hacen los scripts bmp.py, decode.py, encode.py. Para esto, explique cada función implementada.
+
+bmp.py
+
+read_bmp(filename): Abre y lee el archivo -filename- de lena que está en formato bmp. Luego va guardando de manera organizada los datos del header del bmp, y luego los del body. *Como se vió en clase, la estructura de un archivo en formato .bmp tiene un header (metadata como el ancho y largo de la imagen) y un body (valor de cada uno de los pixeles).
+
+get_palette(): Genera una paleta en escala de grises.
+
+save_bmp(dec_bmp,filename,bmp_data): Esta vez generará un archivo que escribirá la información del filename.bmp. La imagen que se genera será igual a la de la entrada.
+
+print_decoded_bmp(): Imprime la información del diccionario que representa la imagen en formato .bmp.
+
+encode.py
+
+get_block(start_x,start_y): Básicamente, genera un arreglo con la información del bmp que se genera en el archivo anterior en la posición que indica sobre cual bloque se está trabajando.
+
+pack_code(filename,bmp_data,codes): Nuevamente guarda la información pero ya comprimida por la codificación y la saca en formato .cbmp.
+
+encode(): Por bloque (ya que la función que se hizo para codificar se hace por bloques, y son varios bloques los que conforman la imagen original) iterados en un ciclo, llama en para cada uno la función que se hizo en el punto 2 de la tarea para codificar la información y comprimirla.
+
+(Se hizo la prueba y el archivo se disminuyó aproximadamente al 20% del tamaño original)
+
+decode.py
+
+unpack_code(filename): Recibe el archivo -filename- comprimido en struct y obtiene sus datos según sus campos.
+
+decode(codes): Recibe los datos comprimidos ya no como structs sino extraídos, y con eso empieza decodificarlos con la función que se hizo en el punto 2. Posteriormente se guarda el archivo obtenido.
+
+(Se hizo la prueba, quedó prácticamente del mismo tamaño y además no se nota pérdida de información)
