@@ -12,6 +12,7 @@ b. Que hacen los scripts:
 			Funcion que crea un diccionario y utiliza para unpack para desempacar la informacion de una imagen y guardarla en el diccionario.
 
 		def get_palette():
+			Crea una lista con 3 valores que van desde 0 a 255.
 
 		def pack():
 			Funcion definida con un try y un exception, para empacar nuevamente una estructura. 
@@ -21,6 +22,23 @@ b. Que hacen los scripts:
 
 		def print_decoded_bpm(): 
 
+
 	decode.py
+		def unpack():
+			Funcion definida con un try y exception, para desempacar una estructura que recibe, en este caso seria la imagen BMP.
+
+		def decode():
+			Recibe toda la informacion que se desempaco con unpack, recorre cada uno de los elementos y lo decodifica con el archivo dct. Luego recorre la matriz de la imagen final y empieza a llenar la informacion de cada uno de los elementos que va decodificando. Y luego recorre la matriz y empieza a llenar los elementos en una lista.
 
 	encode.py
+		def get_block():
+			Recibe las posiciones X y Y de inicio de un bloque de informacion de la imagen y lo transforma de un vector a una matriz.
+
+		def pack_code():
+			Se utiliza para empacar toda la informacion de la imagen. 
+
+		def encode():
+			Se utiliza para obtener la informacion de la imagen con get_block y despues la codifica utilizando el archivo dct, y la guarda en un vector.
+
+
+
