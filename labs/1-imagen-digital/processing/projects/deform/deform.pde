@@ -9,13 +9,13 @@ int current_frame = 0;
 void setup() {
   
   img = loadImage(media_path + "lena.jpg");
-  size(512, 512);
-  image(img, 0, 0);
+  size(512, 512);                                // Crea la ventana
+  image(img, 0, 0);                              // Desplega la imagen en la 
 } 
 
 void draw() {
   if(current_frame == frame){
-    saveFrame(out_path + "lena-out-" + frame + ".jpg");
+    saveFrame(out_path + "lena-out-" + current_frame + ".jpg");
   }
   for (int y = 1; y < img.height-1; y++) {
     for (int x = 1; x < img.width-1; x++) {

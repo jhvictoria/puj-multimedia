@@ -1,0 +1,19 @@
+1) El módulo Struct lo utilizamos para manejar datos binarios, siendo este caso un manejo de los datos binarios del archivo de imagen dada
+
+2)
+	/bmp.py
+
+		read_bmp() 		<= Lee los bits de la imagen
+		get_pallete() 	<= Genera una matriz con la paleta de colores de la imagen (por pixel)
+		save_bmp()		<= Lee y guarda los bits de la imagen original (genera una copia)
+
+	/encode.py
+
+		encode()		<= Recorre los bloques de la imagen y los codifica con dtc()
+		get_block()		<= Lee imagenes dado los bloques de una imagen
+		pack_code()		<= Guarda la información de los bloques en un archivo .cbmp
+
+	/decode.py
+
+		decode() 		<= Recorre los bloques codificados y los decodifica
+		unpack() 		<= Utiliza el archivo .cbmp para reconstruir la imagen
