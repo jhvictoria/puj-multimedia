@@ -1,0 +1,38 @@
+Main View <br><br>
+<input ng-model="title"><br>
+{{title}}
+
+
+<div ng-click="clickMenu('click 1')" >
+Click 1
+</div>
+
+<br>
+
+<div ng-click="clickMenu('click 2')" >
+Click 2
+</div>
+
+<br>
+
+<div ng-click="toggleShow()" >
+    <button>Toggle Show:{{show}}</button>
+</div>
+<div ng-show="show" >
+Show
+</div>
+<div ng-controller="SomeCtrl" ng-show="show">
+    <b>{{title}}</b>
+</div>
+
+<br>
+
+<div ng-click="toggleHide()" >
+    <button>Toggle Hide:{{hide}}</button>
+</div>
+<div ng-if="hide" >
+Hide
+</div>
+<div ng-controller="SomeCtrl" ng-if="hide">
+    <b>{{title}}</b>
+</div>

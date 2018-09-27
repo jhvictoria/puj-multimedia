@@ -1,0 +1,10 @@
+<md-content flex md-scroll-y style="background: #eee">
+  <table>
+    <tr ng-repeat="link in links">
+      <td>{{link.id}}</td>
+      <td>{{link.title}}</td>
+      <td>{{link.date}}</td>
+      <td>{{link.date | date:'dd/mm/yyyy'}}</td>
+    </tr>
+  </table>
+</md-content>
