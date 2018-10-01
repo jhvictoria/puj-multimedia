@@ -12,7 +12,7 @@
   angular.module('webApp')
     .factory('LinksService', ['$http','$q','httpFilter', 'tagsFilter', '__env',
     function($http, $q, httpFilter, tagsFilter, __env) {
-      var api = __env.apiUrl;
+      var api = __env.linksApiUrl;
       var api_ver = "";
       var links = [];
       var tags = [];

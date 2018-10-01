@@ -112,6 +112,10 @@
       return LinksService.getLinks().length;
     };
 
+    $scope.clickLink = function(link){
+      console.log(link);
+    };
+
     $scope.$watch(function() { return LinksService.getSearchFilter(); },
       function(value) {
         $scope.search = value;

@@ -9,23 +9,23 @@ services:
     volumes:
       - ./nodes/rdb/data:/data
 
-  api:
-    build: nodes/api/
+  links-api:
+    build: nodes/links-api/
     environment:
-      - PORT=$API_PORT
+      - PORT=$LINKS_API_PORT
       - RDB_HOST=rdb
       - RDB_PORT=28015
     ports:
-      - $API_PORT
+      - $LINKS_API_PORT
     links:
       - rdb
 
   lb:
     image: dockercloud/haproxy
     ports:
-      - "$API_PORT:80"
+      - "$LINKS_API_PORT:80"
     links:
-      - api
+      - links-api
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
@@ -33,7 +33,7 @@ services:
     build: 
       context: nodes/ui/
       args:
-      - API_HOST=$API_HOST
-      - API_PORT=$API_PORT
+      - LINKS_API_HOST=$LINKS_API_HOST
+      - LINKS_API_PORT=$LINKS_API_PORT
     ports:
       - "$UI_PORT:$UI_PORT"
