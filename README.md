@@ -11,7 +11,7 @@
 ## Entregas
 
 1. [Imagen Digital y Compresión](https://docs.google.com/document/d/e/2PACX-1vTFk7ffLYDwzZvqeffmEpFlNwVlt_3kQ_lewuaAK80VJggs3_ffQojGAsbeUdvE82qtxUvKO16IQubA/pub)
-
+2. [Sinle Page Application](https://docs.google.com/document/d/e/2PACX-1vQnYabP2x1Fq3E1qIW6yx29aEUTHq6iE3b2uL5jDAaxSgxZLf9kIF4fxlDtU2T2NJdqP1FHCKPJfTyy/pub)
 
 ## Setup:
 

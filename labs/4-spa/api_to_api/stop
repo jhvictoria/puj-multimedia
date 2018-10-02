@@ -1,0 +1,4 @@
+#!/bin/bash -xe
+
+# stop stack
+docker-compose down
