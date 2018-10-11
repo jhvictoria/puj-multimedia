@@ -1,0 +1,20 @@
+
+.label {
+	background-color:#3d94f6;
+	text-indent:0;
+	border:1px solid #337fed;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Trebuchet MS;
+	font-size:15px;
+	font-style:normal;
+	width:auto;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	text-decoration:none;
+	text-align:center;
+	cursor: default;
+}
+/* This button was generated using CSSButtonGenerator.com */
