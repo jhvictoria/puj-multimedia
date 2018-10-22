@@ -15,10 +15,10 @@ void setup() {
     
     //Si el color es azul o blanco, colocar negro en la máscara
     if (red(c) + green(c) + blue(c) > 600 || blue(c) > 185) {
-      msk.pixels[i] = 0;
+      msk.pixels[i] = 255;
     }
     else {
-      msk.pixels[i] = 255;
+      msk.pixels[i] = 0;
     }
   }
   image(img, 0, 0);
