@@ -1,0 +1,39 @@
+version: '2'
+services:
+  rdb:
+    image: rethinkdb
+    ports:
+      - "9090:8080"
+      - "28015:28015"
+      - "29015:29015"
+    volumes:
+      - ./nodes/rdb/data:/data
+
+  links-api:
+    build: nodes/links-api/
+    environment:
+      - PORT=$LINKS_API_PORT
+      - RDB_HOST=rdb
+      - RDB_PORT=28015
+    ports:
+      - $LINKS_API_PORT
+    links:
+      - rdb
+
+  lb:
+    image: dockercloud/haproxy
+    ports:
+      - "$LINKS_API_PORT:80"
+    links:
+      - links-api
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  ui:
+    build: 
+      context: nodes/ui/
+      args:
+      - LINKS_API_HOST=$LINKS_API_HOST
+      - LINKS_API_PORT=$LINKS_API_PORT
+    ports:
+      - "$UI_PORT:$UI_PORT"

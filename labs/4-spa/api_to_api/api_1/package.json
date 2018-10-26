@@ -1,0 +1,17 @@
+{
+  "name": "api-1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "api 1",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Jorge Victoria <jhvm.puj@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-logging": "^1.1.1",
+    "logops": "^2.1.0"
+  }
+}
