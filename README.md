@@ -8,6 +8,7 @@
 4. [Computer Vision (Parte 1 - 2)](https://docs.google.com/presentation/d/e/2PACX-1vTNgJMhSSwUDx7R9M5BfFLWTYiQFebAE82emkXcHXxU9NpEkAOb9Mm2DojW_NXN2TwXsj4sUs_8LQh6/pub?start=false&loop=false&delayms=3000)
 5. [Single Page Applications](https://docs.google.com/presentation/d/e/2PACX-1vRlsoEN2FpehZghqHXefxyoBRkRZ6G_I_gUgJp47sn8zvPajK_iCIVP45ztjpYYAw3aIEvAWSCsIKoq/pub?start=false&loop=false&delayms=3000)
 6. [Audio Digital](https://docs.google.com/presentation/d/e/2PACX-1vSVIC9C_H7bGii_KyQyZj92VlBFQnQdw3VPCYj4R3jylGtNAUGp2h0X0UeZ00FxUuatBkr7BKXNsKKn/pub?start=false&loop=false&delayms=3000)
+7. [Video Digital](https://docs.google.com/presentation/d/e/2PACX-1vTXbTVdl3GDncOS28Tr_tTIWEu1L6_3tRm4429Kb4bySQFAfOEB2VhiGZeo6D7ybNserdpnxkH7U55X/pub?start=false&loop=false&delayms=3000)
 
 ## Entregas
 
