@@ -1,0 +1,22 @@
+A:
+{ "type": "login", "name": "userA" }
+
+B:
+{ "type": "login", "name": "userB" }
+
+A:
+{ "type": "offer", "offer": "Hello", "name":"userB" }
+
+B:
+{ "type": "answer", "name":"userA", "answer": "Hello too" }
+
+A:
+{ "type": "answer", "name":"userB", "answer": "Bye" }
+
+A:
+{ "type": "candidate", "name":"userB", "candidate": "new_candidate" }
+
+A:
+{ "type": "leave", "name":"userB" }
+
+{"type":"status"}

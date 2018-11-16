@@ -1,0 +1,26 @@
+{
+  "name": "webrtc",
+  "version": "1.0.0",
+  "description": "webRTC Examples",
+  "readme": "README.md",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "wscat": "node_modules/.bin/wscat -c wss://localhost:8888 -n",
+    "client": "cd client/ && node server.js"
+  },
+  "keywords": [
+    "webRTC",
+    "sockets"
+  ],
+  "author": "Jorge Victoria <jhvm.puj@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/jhvictoria/puj-multimedia",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "ws": "^0.8.0",
+    "wscat": "^2.0.1"
+  }
+}
